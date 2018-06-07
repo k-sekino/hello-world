@@ -30,14 +30,18 @@ function tbox1(){
       flag = true;
 
     } else if (flag == false) {
-      textArray[i] = textArray[i].replace(/&lt;/g, "&amp;amp;lt;");//不要?
-      textArray[i] = textArray[i].replace(/&gt;/g, "&amp;amp;gt;");//不要?
-      textArray[i] = textArray[i].replace(/</g, "&amp;lt;");
-      textArray[i] = textArray[i].replace(/>/g, "&amp;gt;");
       var spaces = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"&nbsp;&nbsp;";
-      var before = spaces+"&lt;p&gt;"+"<br>";
-      var after = spaces+"&lt;/p&gt;"+"<br>";
-      textArray[i] = before+spaces+"&nbsp;&nbsp;"+textArray[i]+"<br>"+after;
+      if (textArray[i].length > 0) {
+        textArray[i] = textArray[i].replace(/&lt;/g, "&amp;amp;lt;");//不要?
+        textArray[i] = textArray[i].replace(/&gt;/g, "&amp;amp;gt;");//不要?
+        textArray[i] = textArray[i].replace(/</g, "&amp;lt;");
+        textArray[i] = textArray[i].replace(/>/g, "&amp;gt;");
+        var before = spaces+"&lt;p&gt;"+"<br>";
+        var after = spaces+"&lt;/p&gt;"+"<br>";
+        textArray[i] = before+spaces+"&nbsp;&nbsp;"+textArray[i]+"<br>"+after;
+      } else {
+        textArray[i] = spaces+"&lt;br&gt;"+"<br>";
+      }
       
     } else {
       textArray[i] = space_lt_gt(textArray[i]);
