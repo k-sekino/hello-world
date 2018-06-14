@@ -47,8 +47,9 @@ function tbox1(){
       textArray[i] = space_lt_gt(textArray[i]);
 
     }
-    //Wordの“, ”の処理
+    //Wordの“, ”の処理    //‘’
     textArray[i] = textArray[i].replace(/“|”/g, "&quot");//
+    textArray[i] = textArray[i].replace(/‘|’/g, "'");//
   }
   
   var new_text = "";
